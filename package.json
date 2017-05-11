@@ -1,0 +1,29 @@
+{
+  "name": "waiter_webapp",
+  "version": "1.0.0",
+  "description": "Waiter working on which day",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cale312/waiter_availability_webapp_project.git"
+  },
+  "author": "cale oasin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cale312/waiter_availability_webapp_project/issues"
+  },
+  "homepage": "https://github.com/cale312/waiter_availability_webapp_project#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "express-handlebars": "^3.0.0",
+    "mocha": "^3.3.0",
+    "mongoose": "^4.9.8"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
