@@ -1,22 +1,12 @@
-module.exports = function() {
-  const mongoose = require('mongoose');
-  const mongoURL = process.env.MONGO_DB_URL || "mongodb://localhost/waiters";
-  mongoose.connect(mongoURL);
+const mongoose = require('mongoose');
+const modelAndConnection = require('../models/connection');
+const Schema = mongoose.Schema;
 
-  var db = mongoose.connection;
+var waiterSchema = new Schema({
+  waiter: String,
+  password: String
+});
 
-  db.on('error', console.error.bind(console, 'connection error:'));
-  db.once('open', function() {
-    console.log('We are connected');
-  });
+const waiter = mongoose.model('waiter', waiterSchema);
 
-  var waiterSchema = mongoose.Schema({
-    waiter: String,
-    password: String
-  });
-  var waiters = mongoose.model('waiters', waiterSchema);
-  waiters.create({
-    waiter: 'admin',
-    password: 'admin'
-  });
-}
+module.exports = waiter;
