@@ -1,8 +1,12 @@
 var express = require('express');
 var exphbs = require('express-handlebars');
 var bodyParser = require('body-parser');
-var loginController = require('./controllers/loginController');
+var loginController = require('./controllers/waiterLoginController');
+var connectDB = require('./models/connection');
 var app = express();
+
+loginController(app);
+connectDB(app)
 
 app.use('/public', express.static('public'));
 app.use(bodyParser.urlencoded({
@@ -14,7 +18,6 @@ app.engine('handlebars', exphbs({
 }));
 app.set('view engine', 'handlebars');
 
-loginController(app);
 
 app.get('/', function(req, res) {
   res.render('index', {})
