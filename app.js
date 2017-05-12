@@ -1,11 +1,11 @@
 var express = require('express');
 var exphbs = require('express-handlebars');
 var bodyParser = require('body-parser');
-var loginController = require('./controllers/waiterLoginController');
+var waiterLogin = require('./controllers/waiterLoginController');
 var connectDB = require('./models/connection');
 var app = express();
 
-loginController(app);
+waiterLogin(app);
 connectDB(app)
 
 app.use('/public', express.static('public'));
