@@ -1,12 +1,9 @@
 hr{clear: both; visibility: hidden;}
-body{text-align: center; margin: 0px; background: url(./img/login-page-bg.jpg) no-repeat; background-size: cover;}
-.username, .password{text-align: center;}
-.sbmitBtn{padding: 5px 20px; border: none; cursor: pointer;}
-.sbmitBtn:hover{background: #999}
-nav{background: rgba(255, 255, 255,0.5); padding: 5px 100px; display: inline-block; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px;}
+body{text-align: center; margin: 0px;}
+.text{background: #fff; border: none; padding: 3px 4px; text-align: center; border-radius: 10px; font-size: 1em;}
 nav a{float: left; margin: 0px 10px; font-size: 2em; text-decoration: none;}
 nav a:hover{text-decoration: underline;}
-.waiterLogin{margin: 100px; color: #fff; display: inline-block; padding: 50px 5px; background: url(./img/login-bg.jpg) no-repeat; border-radius: 10px;}
-.signup-btn, .login-btn{color: #fff; border: none; padding: 10px 50px; background: rgba(255, 255, 255, 0.3); cursor: pointer; font-family: monospace;}
-.signup-btn:hover, .login-btn:hover{background: #888}
-.password, .username{background: #fff; border: none; padding: 2px 4px;}
+.waiterLogin{margin: 100px; color: #fff; display: inline-block; padding: 10px 5px; background: url(./img/login-bg.jpg) no-repeat; border-radius: 10px;}
+.registration-screen{color: #fff; background: rgba(0, 0, 0, 0.5); display: inline-block; padding: 90px 60px; border-radius: 10px; background: url(./img/registration-bg.jpg) no-repeat; background-size: cover;}
+.register-btn, .signup-btn, .login-btn{color: rgba(255, 255, 255, 0.9); border: solid 1px; border-radius: 10px; padding: 10px 50px; background: black; cursor: pointer; font-family: monospace; font-weight: bolder; font-family: monospace; font-weight: bolder;}
+.register-btn:hover, .signup-btn:hover, .login-btn:hover{background: rgba(255, 255, 255, 0.2); color: black}
