@@ -1,25 +1,21 @@
 'use strict';
 module.exports = function(app) {
   const mongoose = require('mongoose');
-
-  var waiterSchema = mongoose.Schema({
-    waiter: String,
-    password: String,
-    email: String
-  });
-  const waiter = mongoose.model('waiter', waiterSchema);
+  const waiter = require('../models/model');
 
   // Manage waiter
-  function manageWaiters(newUsername, fn){
+  function manageWaiters(newUsername, newPassword, email, fn) {
     waiter.findOne({
       waiter: newUsername
-    }, function(err, waiterExists){
-      if (waiterExists){
+    }, function(err, waiterExists) {
+      if (waiterExists) {
         console.log('waiter exists');
         return;
       } else {
         waiter.create({
-          waiter: newUsername
+          waiter: newUsername,
+          password: newPassword,
+          email: email
         });
         console.log('waiter added');
         return;
@@ -35,7 +31,11 @@ module.exports = function(app) {
     var newUsername = req.body.newUsername;
     var newPassword = req.body.newPassword;
     var email = req.body.email;
-    manageWaiters(newUsername);
-    res.render('signup', {})
+    if (newUsername !== '' && newPassword !== '' && email !== '') {
+      manageWaiters(newUsername, newPassword, email);
+      res.render('signup', {});
+    } else {
+      res.render('signup', {massage: 'Error'});
+    }
   });
 }
