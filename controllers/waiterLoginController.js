@@ -32,9 +32,9 @@ module.exports = function(app) {
         if (err) {
           return next(err);
         } else if (waiter && password === waiter.password) {
-          res.render('waiters', {});
+          res.render('waiters', {username: username});
         } else if (username === 'admin' && password === 'admin') {
-          res.render('admin', {});
+          res.render('admin', {admin: username});
         } else {
           res.render('waiterLogin', {error: 'wrong password/username'});
         }
