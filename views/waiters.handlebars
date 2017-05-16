@@ -1,8 +1,8 @@
 <title>{{username}}</title>
 <form class="" action="/waiters" method="post">
-  {{username}}
+  <h3>{{username}}</h3>
   <hr>
-  <table align="center">
+  <table align="center" class="waiter-table">
     <th><input type="checkbox" name="day" value="Monday">Monday</th>
     <th><input type="checkbox" name="day" value="Tuesday">Tuesday</th>
     <th><input type="checkbox" name="day" value="Wednesday">Wednesday</th>
@@ -11,4 +11,7 @@
     <th><input type="checkbox" name="day" value="Saturday">Saturday</th>
     <th><input type="checkbox" name="day" value="Sunday">Sunday</th>
   </table>
+  <br>
+  <input type="submit" name="submit" value="submit" class="submit-btn">
+  <a href="/login" class="submit-btn">Login</a>
 </form>
