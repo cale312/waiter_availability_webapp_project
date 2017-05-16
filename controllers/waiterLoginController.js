@@ -33,6 +33,8 @@ module.exports = function(app) {
           return next(err);
         } else if (waiter && password === waiter.password) {
           res.render('waiters', {});
+        } else if (username === 'admin') {
+          res.render('admin', {});
         } else {
           res.render('waiterLogin', {error: 'wrong password/username'});
         }
