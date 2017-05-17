@@ -35,7 +35,7 @@ module.exports = function(app) {
           name = username;
           res.render('waiters', {username: name});
         } else if (username === 'admin' && password === 'admin') {
-          res.render('admin', {admin: username});
+          res.render('admin', {admin: name});
         } else {
           res.render('waiterLogin', {error: 'wrong password/username'});
         }
