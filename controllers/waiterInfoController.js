@@ -2,18 +2,22 @@ module.exports = function(app) {
   const mongoose = require('mongoose');
   const waiter = require('../models/model');
 
-  function shiftSelect(day) {};
+  function manageStoring(day, fn) {
+    
+  }
 
-  app.get('/waiters', function(req, res) {
-    res.render('waiters', {username: username});
+  app.get('/shifts', function(req, res) {
+    res.render('shifts', {
+      username: username
+    });
   });
 
-  app.post('/waiters', function(req, res) {
-    var username = name[0];
-    var submit = re.body.submit;
+  app.post('/shifts', function(req, res) {
+    var submit = req.body.submit;
+    var day = req.body.day;
     console.log(req.body);
 
-    res.render('waiters', {});
+    res.render('shifts', {});
   });
 
 }
