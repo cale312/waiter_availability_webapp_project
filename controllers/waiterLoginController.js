@@ -6,14 +6,18 @@ module.exports = function(app) {
     waiter.findOne({
       waiter: username
     }, function(err, waiterExists) {
-      if (err){
+      if (err) {
         return err;
       }
 
       if (waiterExists && password === waiterExists.password) {
-        fn(null, {status : 'LoggedIn'});
+        fn(null, {
+          status: 'LoggedIn'
+        });
       } else {
-        fn(null, {status : 'NotLoggedIn'});
+        fn(null, {
+          status: 'NotLoggedIn'
+        });
       }
 
     });
@@ -23,12 +27,18 @@ module.exports = function(app) {
     res.render('login', {});
   });
 
+  var id = [];
 
-  app.get('/shifts/:username', function(req, res, next) {
+  app.get('/shifts/:id', function(req, res, next) {
+    id = req.params.id;
     res.render('shifts', {});
   });
 
-  app.get('/shifts', function(req, res, next) {
+
+  app.post('/shifts', function(req, res) {
+    var submit = req.body.submit;
+    var day = req.body.day;
+
     res.render('shifts', {});
   });
 
@@ -45,6 +55,7 @@ module.exports = function(app) {
           return next(err);
         } else {
           if (result.status === 'LoggedIn') {
+            waiter = username;
             res.redirect('/shifts');
           } else {
             res.redirect('/login');
