@@ -1,6 +1,5 @@
 module.exports = function(app) {
-  const mongoose = require('mongoose');
-  const waiter = require('../models/model');
+  const waiter = require('../models/loginAndRegModel');
 
   function manageLogin(username, password, fn) {
     waiter.findOne({
@@ -19,29 +18,12 @@ module.exports = function(app) {
           status: 'NotLoggedIn'
         });
       }
-
     });
   }
 
   app.get('/login', function(req, res) {
     res.render('login', {});
   });
-
-  var id = [];
-
-  app.get('/shifts/:id', function(req, res, next) {
-    id = req.params.id;
-    res.render('shifts', {});
-  });
-
-
-  app.post('/shifts', function(req, res) {
-    var submit = req.body.submit;
-    var day = req.body.day;
-
-    res.render('shifts', {});
-  });
-
 
   app.post('/login', function(req, res, next) {
     var username = req.body.username;
@@ -55,8 +37,7 @@ module.exports = function(app) {
           return next(err);
         } else {
           if (result.status === 'LoggedIn') {
-            waiter = username;
-            res.redirect('/shifts');
+            res.redirect('/shifts/' + username);
           } else {
             res.redirect('/login');
           }
@@ -66,4 +47,5 @@ module.exports = function(app) {
       res.render('signup', {});
     }
   });
+
 }

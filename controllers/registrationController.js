@@ -1,10 +1,11 @@
 'use strict';
 module.exports = function(app) {
   const mongoose = require('mongoose');
-  const waiter = require('../models/model');
+  const waiter = require('../models/loginAndRegModel');
+  const shifts = require('../models/shiftsModel');
 
   // Manage waiter
-  function manageWaiters(newUsername, newPassword, email, fn) {
+  function manageWaiters(newUsername, newPassword, fn) {
     waiter.findOne({
       waiter: newUsername
     }, function(err, waiterExists) {
@@ -14,8 +15,19 @@ module.exports = function(app) {
       } else {
         waiter.create({
           waiter: newUsername,
-          password: newPassword,
-          email: email
+          password: newPassword
+        });
+        shifts.create({
+          waiter: newUsername,
+          shifts: {
+            Monday: false,
+            Tuesday: false,
+            Wednesday: false,
+            Thursday: false,
+            Friday: false,
+            Saturday: false,
+            Sunday: false
+          }
         });
         console.log('waiter added');
         return;
@@ -30,12 +42,13 @@ module.exports = function(app) {
   app.post('/register', function(req, res) {
     var newUsername = req.body.newUsername;
     var newPassword = req.body.newPassword;
-    var email = req.body.email;
-    if (newUsername !== '' && newPassword !== '' && email !== '') {
-      manageWaiters(newUsername, newPassword, email);
+    if (newUsername !== '' && newPassword !== '') {
+      manageWaiters(newUsername, newPassword);
       res.render('signup', {});
     } else {
-      res.render('signup', {massage: 'Error'});
+      res.redirect('/register', {
+        massage: 'Error'
+      });
     }
   });
 }
