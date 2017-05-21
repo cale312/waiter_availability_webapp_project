@@ -3,13 +3,13 @@ const mongoose = require('mongoose');
 var waiterShiftsSchema = mongoose.Schema({
   waiter: String,
   shifts: {
-    Monday: false,
-    Tuesday: false,
-    Wednesday: false,
-    Thursday: false,
-    Friday: false,
-    Saturday: false,
-    Sunday: false
+    Monday: Boolean,
+    Tuesday: Boolean,
+    Wednesday: Boolean,
+    Thursday: Boolean,
+    Friday: Boolean,
+    Saturday: Boolean,
+    Sunday: Boolean
   }
 });
 
