@@ -37,6 +37,7 @@ module.exports = function(app) {
           return next(err);
         } else {
           if (result.status === 'LoggedIn') {
+            // console.log(result);
             res.redirect('/shifts/' + username);
           } else {
             res.redirect('/login');
