@@ -2,15 +2,7 @@ const mongoose = require('mongoose');
 
 var waiterShiftsSchema = mongoose.Schema({
   waiter: String,
-  shifts: {
-    Monday: Boolean,
-    Tuesday: Boolean,
-    Wednesday: Boolean,
-    Thursday: Boolean,
-    Friday: Boolean,
-    Saturday: Boolean,
-    Sunday: Boolean
-  }
+  shifts: []
 });
 
 const waiterShifts = mongoose.model('waiterShifts', waiterShiftsSchema);
