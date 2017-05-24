@@ -19,15 +19,7 @@ module.exports = function(app) {
         });
         shifts.create({
           waiter: newUsername,
-          shifts: {
-            Monday: false,
-            Tuesday: false,
-            Wednesday: false,
-            Thursday: false,
-            Friday: false,
-            Saturday: false,
-            Sunday: false
-          }
+          shifts: []
         });
         console.log('waiter added');
         return;
