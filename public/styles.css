@@ -14,3 +14,4 @@ h3{font-size: 2em; text-transform: uppercase; letter-spacing: 1em;}
 .admin-table th{border: solid; padding: 5px;}
 .waiter-table{font-size: 1.5em; letter-spacing: .1em;}
 .waiter-table th{font-size: 1.5em; border: solid}
+td{border:solid 2px; padding: 20px 50px}
