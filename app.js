@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 const waiterLogin = require('./controllers/waiterLoginController');
 const registration = require('./controllers/registrationController');
 const waiterInfo = require('./controllers/waiterInfoController');
-const adminDisplay = require('./controllers/adminDisplayController');
 const connectDB = require('./models/connection');
 const app = express();
 
@@ -28,7 +27,6 @@ connectDB(app)
 waiterLogin(app);
 registration(app);
 waiterInfo(app);
-adminDisplay(app);
 
 const port = process.env.PORT || 3000;
 app.listen(port, function() {
