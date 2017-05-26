@@ -4,13 +4,15 @@
   <h3 name="username">{{username}}</h3>
   <hr>
   <table align="center" class="waiter-table">
-    <th><input type="checkbox" name="day" value="Monday">Monday</th>
-    <th><input type="checkbox" name="day" value="Tuesday" >Tuesday</th>
-    <th><input type="checkbox" name="day" value="Wednesday" >Wednesday</th>
-    <th><input type="checkbox" name="day" value="Thursday" >Thursday</th>
-    <th><input type="checkbox" name="day" value="Friday" >Friday</th>
-    <th><input type="checkbox" name="day" value="Saturday" >Saturday</th>
-    <th><input type="checkbox" name="day" value="Sunday" >Sunday</th>
+    {{#days}}
+    <th><input type="checkbox" name="day" value="Monday" {{Monday}}>Monday</th>
+    <th><input type="checkbox" name="day" value="Tuesday" {{Tuesday}}>Tuesday</th>
+    <th><input type="checkbox" name="day" value="Wednesday" {{Wednesday}}>Wednesday</th>
+    <th><input type="checkbox" name="day" value="Thursday" {{Thursday}}>Thursday</th>
+    <th><input type="checkbox" name="day" value="Friday" {{Friday}}>Friday</th>
+    <th><input type="checkbox" name="day" value="Saturday" {{Saturday}}>Saturday</th>
+    <th><input type="checkbox" name="day" value="Sunday" {{Sunday}}>Sunday</th>
+    {{/days}}
   </table>
   <br>
   <input type="submit" name="submit" value="submit" class="submit-btn">
@@ -21,9 +23,9 @@
   <table align="center">
     <h3>YOUR SHIFTS</h3>
     <tr>
-      {{#each shifts}}
+      {{#shifts}}
       <td>{{this}}</td>
-      {{/each}}
+      {{/shifts}}
     </tr>
   </table>
 </h2>
