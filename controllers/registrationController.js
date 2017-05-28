@@ -45,10 +45,10 @@ module.exports = function(app) {
       if (err){
         return err;
       } else if (result.status === 'exist') {
-        console.log(result);
+        // console.log(result);
         res.render('signup', {massage: 'waiter already exist'});
       } else if (result.status === 'added') {
-        console.log(result);
+        // console.log(result);
         res.render('signup', {massage: 'successfully registered'});
       }
     });
