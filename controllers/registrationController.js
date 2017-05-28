@@ -10,7 +10,10 @@ module.exports = function(app) {
       waiter: newUsername
     }, function(err, waiterExists) {
       if (waiterExists) {
-        console.log('waiter exists');
+        fn(null, {
+          status: 'exist'
+        });
+        // console.log('waiter exists');
         return;
       } else {
         waiter.create({
@@ -21,7 +24,10 @@ module.exports = function(app) {
           waiter: newUsername,
           shifts: []
         });
-        console.log('waiter added');
+        fn(null, {
+          status: 'added'
+        });
+        // console.log('waiter added');
         return;
       }
     });
@@ -34,13 +40,25 @@ module.exports = function(app) {
   app.post('/register', function(req, res) {
     var newUsername = req.body.newUsername;
     var newPassword = req.body.newPassword;
-    if (newUsername !== '' && newPassword !== '') {
-      manageWaiters(newUsername, newPassword);
-      res.render('signup', {});
-    } else {
-      res.redirect('/register', {
-        massage: 'Error'
-      });
-    }
+
+    manageWaiters(newUsername, newPassword, function(err, result){
+      if (err){
+        return err;
+      } else if (result.status === 'exist') {
+        console.log(result);
+        res.render('signup', {massage: 'waiter already exist'});
+      } else if (result.status === 'added') {
+        console.log(result);
+        res.render('signup', {massage: 'successfully registered'});
+      }
+    });
+    //
+    // if (newUsername !== '' && newPassword !== '') {
+    //   res.render('signup', {});
+    // } else {
+    //   res.redirect('/register', {
+    //     massage: 'Error'
+    //   });
+    // }
   });
 }
