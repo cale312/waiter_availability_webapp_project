@@ -42,7 +42,7 @@ module.exports = function(app) {
           } else if (username === 'admin' && password === 'admin') {
             res.redirect('/admin/' + username);
           } else {
-            res.redirect('/login');
+            res.render('login', {error: 'wrong username/password'});
           }
         }
       });
