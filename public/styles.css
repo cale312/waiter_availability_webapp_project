@@ -1,4 +1,4 @@
-hr{clear: both; visibility: hidden;}
+hr{clear: both; width: 500px;}
 body{background: ghostwhite; margin: 0px; text-align: center;}
 .text{background: #fff; border: none; padding: 3px 4px; text-align: center; border-radius: 10px; font-size: 1em;}
 nav ul{background: black; padding: 50px 10px; margin: 0px; box-shadow: 0px 5px 5px gray;}
@@ -6,6 +6,7 @@ nav ul li{display: inline-block; color: ghostwhite; font-family: monospace; font
 nav ul li:hover, .active{background: ghostwhite; color: black;}
 h1{margin: 10px; color: #fff; font-size: 6em; font-family: sans-serif; letter-spacing: .1em; text-shadow: 0px 0px 5px black; color: black}
 h2{letter-spacing: .4em; font-size: 2em; border: solid 1px;}
+.waiter{font-family: sans-serif; font-size: 3em; letter-spacing: .1em; text-transform: uppercase;;}
 .waiterLogin, .registration-screen{display: inline-block; padding: 30px 100px; background: black; color: whitesmoke; font-family: serif; box-shadow: 0px 5px 5px black;}
 .register-btn, .signup-btn, .login-btn, .submit-btn, .back-btn{text-decoration: none; border: solid 1px; border-radius: 10px; padding: 10px 20px; cursor: pointer; background: black; color: whitesmoke; font-family: monospace;}
 .register-btn:hover, .signup-btn:hover, .login-btn:hover, .submit-btn:hover, .back-btn:hover{background: whitesmoke; color: black;}
@@ -13,3 +14,5 @@ h2{letter-spacing: .4em; font-size: 2em; border: solid 1px;}
 .admin-table th{padding: 10px 20px; font-size: 35px; border-bottom: solid; border-left: solid;}
 .admin-table td{border-bottom: solid 1px; border-left: solid 1px; color: black; font-size: 1.5em;}
 .waiter-table th{display: inline-block; font-size: 2em; margin: 10px; padding: 5px;}
+h3{letter-spacing: .1em; font-size: 1.5em;}
+.your-shifts-table td{border-right: solid; padding: 0px 10px; font-size: 2.5em;}
